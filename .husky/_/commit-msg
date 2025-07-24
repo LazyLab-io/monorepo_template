@@ -1,3 +1,2 @@
 #!/bin/sh
 pnpx commitlint --edit "$1"
-
