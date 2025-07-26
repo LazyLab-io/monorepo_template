@@ -8,15 +8,15 @@ The primary goal of this structure is to promote code reuse, maintain consistenc
 
 Here is a list of the shared packages currently available in this monorepo:
 
-| Package Directory     | npm Name          | Description                                                                 |
-|-----------------------|-------------------|-----------------------------------------------------------------------------|
-| `ui/`                 | `@repo/ui`        | A library of shared React components (Buttons, Cards, etc.) for a consistent UI. |
-| `utils/`              | `@repo/utils`     | Common, stateless helper functions (e.g., date formatters, validators).     |
-| `types/`              | `@repo/types`     | Shared TypeScript types, interfaces, and schemas (e.g., API contracts).     |
-| `eslint-config/`      | `@repo/eslint-config` | The base ESLint configuration to enforce consistent code style and quality. |
-| `typescript-config/`  | `@repo/typescript-config` | Shared `tsconfig.json` files that other packages and apps should extend.    |
-| `testing-utils/`      | `@repo/testing-utils` | Reusable utilities for testing, such as custom render functions, mocks, and fixtures. |
-| `scripts/`            | `@repo/scripts`   | Reusable automation scripts for tasks like database seeding or deployment.  |
+| Package Directory    | npm Name                  | Description                                                                           |
+| -------------------- | ------------------------- | ------------------------------------------------------------------------------------- |
+| `ui/`                | `@repo/ui`                | A library of shared React components (Buttons, Cards, etc.) for a consistent UI.      |
+| `utils/`             | `@repo/utils`             | Common, stateless helper functions (e.g., date formatters, validators).               |
+| `types/`             | `@repo/types`             | Shared TypeScript types, interfaces, and schemas (e.g., API contracts).               |
+| `eslint-config/`     | `@repo/eslint-config`     | The base ESLint configuration to enforce consistent code style and quality.           |
+| `typescript-config/` | `@repo/typescript-config` | Shared `tsconfig.json` files that other packages and apps should extend.              |
+| `testing-utils/`     | `@repo/testing-utils`     | Reusable utilities for testing, such as custom render functions, mocks, and fixtures. |
+| `scripts/`           | `@repo/scripts`           | Reusable automation scripts for tasks like database seeding or deployment.            |
 
 ---
 
@@ -53,14 +53,14 @@ After updating `package.json`, run `pnpm install` (or your package manager's ins
 
 ```tsx
 // In a component within apps/web
-import { Button } from '@monorepo/ui';
-import { formatDate } from '@monorepo/utils';
+import { Button } from "@monorepo/ui";
+import { formatDate } from "@monorepo/utils";
 
 export function MyComponent() {
   return (
     <div>
       <p>Today is: {formatDate(new Date())}</p>
-      <Button onClick={() => alert('Clicked!')}>Click Me</Button>
+      <Button onClick={() => alert("Clicked!")}>Click Me</Button>
     </div>
   );
 }
@@ -108,6 +108,7 @@ Create a new folder inside `packages/` with a descriptive, kebab-case name (e.g.
 ```
 
 **Notes**:
+
 - `name`: Must be unique and scoped with `@monorepo/`.
 - `main`, `module`, `types`: Entry points for different module systems.
 - `exports`: Defines public API and supports modern bundlers.
@@ -152,8 +153,8 @@ packages/types/
 **Barrel File (`src/index.ts`)**:
 
 ```ts
-export * from './user';
-export * from './product';
+export * from "./user";
+export * from "./product";
 ```
 
 **package.json `exports`**:
@@ -170,7 +171,7 @@ export * from './product';
 **Consumption**:
 
 ```ts
-import { User, Product } from '@monorepo/types';
+import { User, Product } from "@monorepo/types";
 ```
 
 ---
@@ -209,8 +210,8 @@ packages/ui/
 **Recommended Usage**:
 
 ```tsx
-import { Button } from '@monorepo/ui/Button';
-import { Card } from '@monorepo/ui/Card';
+import { Button } from "@monorepo/ui/Button";
+import { Card } from "@monorepo/ui/Card";
 ```
 
 This ensures only necessary code is bundled.
