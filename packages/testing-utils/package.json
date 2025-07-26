@@ -1,5 +1,5 @@
 {
-  "name": "testing-utils",
+  "name": "@repo/testing-utils",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
