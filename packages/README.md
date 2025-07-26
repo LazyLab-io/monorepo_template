@@ -53,8 +53,8 @@ After updating `package.json`, run `pnpm install` (or your package manager's ins
 
 ```tsx
 // In a component within apps/web
-import { Button } from "@monorepo/ui";
-import { formatDate } from "@monorepo/utils";
+import { Button } from "@repo/ui";
+import { formatDate } from "@repo/utils";
 
 export function MyComponent() {
   return (
@@ -98,8 +98,8 @@ Create a new folder inside `packages/` with a descriptive, kebab-case name (e.g.
     "lint": "eslint . --max-warnings 0"
   },
   "devDependencies": {
-    "@monorepo/eslint-config": "workspace:*",
-    "@monorepo/typescript-config": "workspace:*",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "eslint": "^8.57.0",
     "tsup": "^8.0.2",
     "typescript": "^5.3.3"
@@ -109,7 +109,7 @@ Create a new folder inside `packages/` with a descriptive, kebab-case name (e.g.
 
 **Notes**:
 
-- `name`: Must be unique and scoped with `@monorepo/`.
+- `name`: Must be unique and scoped with `@repo/`.
 - `main`, `module`, `types`: Entry points for different module systems.
 - `exports`: Defines public API and supports modern bundlers.
 - `scripts`: Uses `tsup` for bundling.
@@ -161,7 +161,7 @@ export * from "./product";
 
 ```json
 {
-  "name": "@monorepo/types",
+  "name": "@repo/types",
   "exports": {
     ".": "./src/index.ts"
   }
@@ -171,7 +171,7 @@ export * from "./product";
 **Consumption**:
 
 ```ts
-import { User, Product } from "@monorepo/types";
+import { User, Product } from "@repo/types";
 ```
 
 ---
@@ -195,7 +195,7 @@ packages/ui/
 
 ```json
 {
-  "name": "@monorepo/ui",
+  "name": "@repo/ui",
   "exports": {
     ".": "./src/index.tsx",
     "./Button": "./src/Button.tsx",
@@ -204,14 +204,14 @@ packages/ui/
 }
 ```
 
-- `.` — main entry (`@monorepo/ui`)
-- `./Button` — deep import (`@monorepo/ui/Button`)
+- `.` — main entry (`@repo/ui`)
+- `./Button` — deep import (`@repo/ui/Button`)
 
 **Recommended Usage**:
 
 ```tsx
-import { Button } from "@monorepo/ui/Button";
-import { Card } from "@monorepo/ui/Card";
+import { Button } from "@repo/ui/Button";
+import { Card } from "@repo/ui/Card";
 ```
 
 This ensures only necessary code is bundled.
