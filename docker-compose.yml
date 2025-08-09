@@ -6,10 +6,14 @@ services:
       target: dev
       args:
         - APP_NAME=api
-    command: pnpm --filter api run start
-#    command: tail -f /dev/null
+    #    note: - for starting up and running container
+    #    command: tail -f /dev/null
+    #    note: - no node reload on code change
+    #    command: pnpm --filter api run
+    #    note: - for running dev to see live changes
+    command: pnpm --filter api run dev
     ports:
-      - "3000:3000"
+      - "3001:3001"
     environment:
       - NODE_ENV=development
     volumes:
