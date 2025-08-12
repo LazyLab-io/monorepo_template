@@ -16,7 +16,10 @@
   "packageManager": "pnpm@10.13.1",
   "dependencies": {
     "fastify": "^5.4.0",
-    "fastify-plugin": "^5.0.1"
+    "fastify-plugin": "^5.0.1",
+    "@aws-sdk/client-secrets-manager": "^3.864.0",
+    "zod": "^4.0.17",
+    "dotenv": "^17.2.1"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
