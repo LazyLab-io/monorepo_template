@@ -13,9 +13,11 @@ services:
     #    note: - for running dev to see live changes
     command: pnpm --filter api run dev
     ports:
-      - "3001:3001"
+      - "3010:3010"
     environment:
       - NODE_ENV=development
+      - PORT=3010
+      - DB_URL=postgresql://user:secret@localhost:5432/mydb
     volumes:
       - ./apps/api:/app/apps/api
       - /app/node_modules
